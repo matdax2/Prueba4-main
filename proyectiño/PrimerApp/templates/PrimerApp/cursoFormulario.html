@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - Agregar curso</title>
+</head>
+<body>
+    {% if formulario.errors %}
+        <p style="color: red;">Estan mal los datos</p>
+    {% endif %}
+    <form action="" method="POST">{% csrf_token %}
+        <table>
+            {{formulario.as_table}}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
