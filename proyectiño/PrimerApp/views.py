@@ -12,7 +12,7 @@ def cursoFormulario(request):
         print(formulario)
         if formulario.is_valid:
             informacion = formulario.cleaned_data
-            curso = Curso(nombre = informacion["curso"], camada = informacion["camada"])
+            curso = Curso(nombre = informacion["grupo"], grupo = informacion["grupo"])
             curso.save()
             return render(request, "PrimerApp/base.html")
     else:
@@ -49,10 +49,10 @@ def busqueda(request):
     return render(request, "PrimerApp/buscador.html")
 
 def buscar(request):
-    if request.GET["camada"]:
-        camada = request.GET["camada"]
-        cursos = Curso.objects.filter(camada__icontains=camada)
-        return render(request, "PrimerApp/busqueda.html", {"cursos":cursos, "camada": camada})
+    if request.GET["grupo"]:
+        grupo = request.GET["grupo"]
+        cursos = Curso.objects.filter(grupo__icontains=grupo)
+        return render(request, "PrimerApp/busqueda.html", {"cursos":cursos, "grupo": grupo})
     else:
         respuesta = "No enviastes datos"
     return HttpResponse(respuesta)

@@ -23,7 +23,6 @@
                 <a class="navbar-brand" href="{% url 'Formulario de estudiantes' %}">Ingresar Estudiante</a>
                 <a class="navbar-brand" href="{% url 'Formulario de profesores' %}">Ingresar Profesor</a>
                 <a class="navbar-brand" href="{% url 'Formulario de cursos' %}">Ingresar Curso</a>
-                <a class="navbar-brand" href="{% url 'busqueda' %}">Buscador</a>
                 <a class="navbar-brand" href="{% url 'gerardito' %}">Geralt de Rivia</a>
             </div>
         </nav>
@@ -35,11 +34,11 @@
                         <div class="text-center text-white">
                             <!-- Page heading-->
                             <h1 class="mb-5">Colegio n423</h1>
-                            <p style="color: blue;"</p>Buscador de nombre y grupo:
+                            <p style="color: rgb(255, 55, 0);"</p>Buscador de nombre y grupo:
                                 <form action="/PrimerApp/buscar/" method="GET">
                                     
                                     <p>Nombre</p> <input type="text" name="nombre" id="nombre"> 
-                                    <p>Grupo</p> <input type="number" name="camada" id="camada">
+                                    <p>Grupo</p> <input type="number" name="grupo" id="camada">
                                     <p> 
                                         
                                     </p>
