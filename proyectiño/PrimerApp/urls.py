@@ -2,7 +2,7 @@ from django.urls import path
 from PrimerApp import views
 
 urlpatterns = [
-    path('', views.inicio, name="Principal"),
+    path('PrimerApp/', views.inicio, name="Principal"),
     path('formulario/', views.cursoFormulario, name="Formulario de cursos"),
     path('profForms/', views.profFormulario, name="Formulario de profesores"),
     path('estForms/', views.formEstudiante, name="Formulario de estudiantes"),
