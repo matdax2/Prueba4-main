@@ -7,7 +7,8 @@
 </head>
 <body>
     {% for estudiante in estudiantes %}
-        {{estudiante}}
+        <li>{{estudiante}}</li>
     {% endfor %}
+    <a class="btn-outline-dark" href="{% url 'Formulario de estudiantes' %}">Ingresar otro estudiante</a>
 </body>
 </html>

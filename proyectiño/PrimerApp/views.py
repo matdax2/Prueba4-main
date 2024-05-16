@@ -12,7 +12,7 @@ def cursoFormulario(request):
         print(formulario)
         if formulario.is_valid:
             informacion = formulario.cleaned_data
-            curso = Curso(nombre = informacion["grupo"], grupo = informacion["grupo"])
+            curso = Curso(curso = informacion["curso"], grupo = informacion["grupo"])
             curso.save()
             return render(request, "PrimerApp/base.html")
     else:
@@ -48,15 +48,10 @@ def formEstudiante(request):
     return render(request, "PrimerApp/estFormulario.html", {"formulario_est": formulario_est})
 
 def busqueda(request):
-    return render(request, "PrimerApp/buscador.html")
+    return render(request, "PrimerApp/base.html")
 
 def buscar(request):
-    if request.GET["grupo"]:
-        grupo = request.GET["grupo"]
-        cursos = Curso.objects.filter(grupo__icontains=grupo)
-        return render(request, "PrimerApp/busqueda.html", {"cursos":cursos, "grupo": grupo})
-    else:
-        respuesta = "No enviastes datos"
+    respuesta = f"Estoy buscando el grupo: {request.GET['grupo']}"
     return HttpResponse(respuesta)
 
 def Geralt_De_Rivia(request):
@@ -71,3 +66,8 @@ def leerEstudiante(request):
     estudiantes = Estudiante.objects.all()
     contexto = {"estudiantes": estudiantes}
     return render(request, "PrimerApp/leerEstudiante.html", contexto)
+
+def leerCurso(request):
+    cursos = Curso.objects.all()
+    contexto = {"cursos": cursos}
+    return render(request, "PrimerApp/leerCurso.html", contexto)

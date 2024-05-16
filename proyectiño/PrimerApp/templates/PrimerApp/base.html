@@ -25,6 +25,7 @@
                 <a class="navbar-brand" href="{% url 'Formulario de profesores' %}">Ingresar Profesor</a>
                 <a class="navbar-brand" href="{% url 'Profesores' %}">Profesores</a>
                 <a class="navbar-brand" href="{% url 'Formulario de cursos' %}">Ingresar Curso</a>
+                <a class="navbar-brand" href="{% url 'Cursos' %}">Cursos</a>
                 <a class="navbar-brand" href="{% url 'gerardito' %}">Geralt de Rivia</a>
             </div>
         </nav>
@@ -35,27 +36,15 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">Colegio n423</h1>
-                            <p style="color: rgb(255, 55, 0);"</p>Buscador de nombre y grupo:
-                                <form action="/PrimerApp/buscar/" method="GET">
-                                    
-                                    <p>Nombre</p> <input type="text" name="nombre" id="nombre"> 
-                                    <p>Grupo</p> <input type="number" name="grupo" id="camada">
-                                    <p> 
-                                        
-                                    </p>
-                                    <p>
+
                             
-                                    </p>
+                            <h1 class="mb-5">Colegio n423 San Sebastian</h1>
+                                <form action="PrimerApp/busqueda" method="GET">                                    
+                                    <p>Buscar curso</p> <input type="text" name="Cursos"> 
                                     <input type="submit" value="Buscar">
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
+
+
+
                             <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
                                 <!-- Email address input-->
                                 <div class="row">

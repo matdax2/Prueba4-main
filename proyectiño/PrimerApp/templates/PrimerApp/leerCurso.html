@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de cursos</title>
+</head>
+<body>
+    {% for curso in cursos %}
+        <li>{{curso}}</li>
+    {% endfor %}
+    <a class="btn-outline-dark" href="{% url 'Formulario de cursos' %}">Ingresar otro curso</a>
+</body>
+</html>

@@ -1,10 +1,10 @@
 from django.db import models
 
 class Curso(models.Model):
-    nombre = models.CharField(max_length=100)
+    curso = models.CharField(max_length=100)
     grupo = models.IntegerField()
     def __str__(self):
-        return f"{self.nombre}, {self.grupo}"
+        return f"{self.curso}, Grupo: {self.grupo}"
 
 class Profesor(models.Model):
     nombre = models.CharField(max_length=100)
