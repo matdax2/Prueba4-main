@@ -27,10 +27,12 @@ def profFormulario(request):
             informacion = prof_formulario.cleaned_data
             profesor = Profesor(nombre = informacion["nombre"], apellido = informacion["apellido"], email = informacion["email"], profesion = informacion["profesion"])
             profesor.save()
-            return render(request, "PrimerApp/base.html")
+            return render(request, "PrimerApp/base.html") 
     else:
         prof_formulario = ProfeFormulario()
-    return render(request, "PrimerApp/profeFormulario.html", {"prof_formulario": prof_formulario})
+    return render(request, "PrimerApp/profeFormulario.html", {"prof_formulario": prof_formulario}) 
+
+    
 
 def formEstudiante(request):
     if request.method == "POST":
@@ -59,3 +61,13 @@ def buscar(request):
 
 def Geralt_De_Rivia(request):
     return render(request, "PrimerApp/Gerardo.html")
+
+def leerProf(request):
+    profesores = Profesor.objects.all()
+    contexto = {"profesores": profesores}
+    return render(request, "PrimerApp/leerProf.html", contexto)
+
+def leerEstudiante(request):
+    estudiantes = Estudiante.objects.all()
+    contexto = {"estudiantes": estudiantes}
+    return render(request, "PrimerApp/leerEstudiante.html", contexto)
