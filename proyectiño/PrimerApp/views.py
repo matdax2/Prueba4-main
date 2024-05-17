@@ -48,11 +48,13 @@ def formEstudiante(request):
     return render(request, "PrimerApp/estFormulario.html", {"formulario_est": formulario_est})
 
 def busqueda(request):
-    return render(request, "PrimerApp/base.html")
+    return render(request, "PrimerApp/busqueda.html")
 
 def buscar(request):
-    respuesta = f"Estoy buscando el grupo: {request.GET['grupo']}"
-    return HttpResponse(respuesta)
+    query = request.GET.get("grupo")
+    if query:
+        resultado = Curso.objects.filter(grupo__icontains=query)
+    return render(request, "PrimerApp/busqueda.html", {"resultado": resultado, "query": query})
 
 def Geralt_De_Rivia(request):
     return render(request, "PrimerApp/Gerardo.html")

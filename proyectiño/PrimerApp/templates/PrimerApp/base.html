@@ -39,8 +39,8 @@
 
                             
                             <h1 class="mb-5">Colegio n423 San Sebastian</h1>
-                                <form action="PrimerApp/busqueda" method="GET">                                    
-                                    <p>Buscar curso</p> <input type="text" name="Cursos"> 
+                                <form action="{% url 'Buscador' %}" method="GET">                                    
+                                    <p>Buscar curso segun el grupo</p> <input type="number" name="grupo" id="grupo" placeholder="Ingrese un grupo"> 
                                     <input type="submit" value="Buscar">
 
 
