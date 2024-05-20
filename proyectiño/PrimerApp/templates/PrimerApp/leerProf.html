@@ -4,11 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Profesores</title>
+    <style>
+        .btn-custom {
+            background-color: #007bff; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px; 
+            font-family: 'Arial', sans-serif;
+            font-weight: bold; 
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     {% for profesor in profesores %}
         <li>{{profesor}}</li>
+        <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Borrar Profesor' profesor.nombre %}">Borrar</a></button>
+        <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Update Profe' profesor.nombre %}">Update</a></button>
     {% endfor %}
+    <br>
     <a class="btn-outline-dark" href="{% url 'Formulario de profesores' %}">Ingresar otro profesor</a>
+    <br>
+    <button class="btn-custom" onclick="window.location.href='{% url 'Principal' %}'">Inicio</button>
 </body>
 </html>

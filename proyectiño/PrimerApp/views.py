@@ -73,3 +73,42 @@ def leerCurso(request):
     cursos = Curso.objects.all()
     contexto = {"cursos": cursos}
     return render(request, "PrimerApp/leerCurso.html", contexto)
+
+def borrarProfe(request, profesor_nombre):
+    profesor = Profesor.objects.get(nombre=profesor_nombre)
+    profesor.delete()
+    profesores = Profesor.objects.all()
+    contexto = {"profesores": profesores}
+    return render(request, "PrimerApp/leerProf.html", contexto)
+
+def borrarEstudiante(request, estudiante_nombre):
+    estudiante = Estudiante.objects.get(nombre=estudiante_nombre)
+    estudiante.delete()
+    estudiantes = Estudiante.objects.all()
+    contexto = {"estudiantes": estudiantes}
+    return render(request, "PrimerApp/leerEstudiante.html", contexto)
+
+def borrarCurso(request, curso_curso):
+    curso = Curso.objects.get(curso=curso_curso)
+    curso.delete()
+    cursos = Curso.objects.all()
+    contexto = {"cursos": cursos}
+    return render(request, "PrimerApp/leerCurso.html", contexto)
+
+def updateProfe(request, profesor_nombre):
+    profesor = Profesor.objects.get(nombre=profesor_nombre)
+    if request.method == "POST":
+        formulario = ProfeFormulario(request.POST)
+        print(formulario)
+        if formulario.is_valid:
+            informacion = formulario.cleaned_data
+            profesor.nombre = informacion["nombre"]
+            profesor.apellido = informacion["apellido"]
+            profesor.email = informacion["email"]
+            profesor.profesion = informacion["profesion"]
+            profesor.save()
+            return render(request, "PrimerApp/base.html")
+    else:
+        formulario = ProfeFormulario(initial={"nombre": profesor.nombre, "apellido": profesor.apellido,
+                                              "email": profesor.email, "profesion": profesor.profesion})
+    return render(request, "PrimerApp/updateProfe.html", {"formulario": formulario, "profesor_nombre": profesor_nombre})
