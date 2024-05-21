@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerardo</title>
+    <style>
+        .btn-custom {
+            background-color: #007bff; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px; 
+            font-family: 'Arial', sans-serif;
+            font-weight: bold; 
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <p style="font-size: 100px; color: green;"</p>El mejor que hay el white wolf
     <img src="https://www.specfictionshop.com/cdn/shop/files/MAIN-GERALT_1cb2d8b1-5691-41f7-978a-e35145cfae7d_2000x.png?v=1702077519" alt="Gerardito">
+    <br>
+    <button class="btn-custom" onclick="window.location.href='{% url 'Principal' %}'">Inicio</button>
 </body>
 </html>

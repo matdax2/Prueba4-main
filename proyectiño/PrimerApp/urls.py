@@ -16,4 +16,11 @@ urlpatterns = [
     path('borrarEst/<estudiante_nombre>', views.borrarEstudiante, name="Borrar Estudiante"),
     path('borrarCurso/<curso_curso>', views.borrarCurso, name="Borrar Curso"),
     path('updateProfe/<profesor_nombre>', views.updateProfe, name="Update Profe"),
+    path('updateEst/<estudiante_nombre>', views.updateEstudiante, name="Update Estudiante"),
+    path('updateCurso/<curso_curso>', views.updateCurso, name="Update Curso"),
+    path('curso/lista', views.CursoListView.as_view(), name="ListaCursos"),
+    path('curso/crear', views.CursoCreateView.as_view(), name="CreateCurso"),
+    path('curso/<pk>', views.CursoDetailView.as_view(), name="CursoDetalle"),
+    path('curso/<pk>/update', views.CursoUpdateView.as_view(), name="CursoUpdate"),
+    path('curso/<pk>/borrar', views.CursoDeleteView.as_view(), name="CursoDelete"),
 ]

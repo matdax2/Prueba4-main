@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear curso</title>
+</head><h1>Creacion de curso</h1>
+<body>
+    <form action="" method="POST">{% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Crear">
+    </form>
+</body>
+</html>

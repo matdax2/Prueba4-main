@@ -26,6 +26,7 @@
                 <a class="navbar-brand" href="{% url 'Profesores' %}">Profesores</a>
                 <a class="navbar-brand" href="{% url 'Formulario de cursos' %}">Ingresar Curso</a>
                 <a class="navbar-brand" href="{% url 'Cursos' %}">Cursos</a>
+                <a class="navbar-brand" href="{% url 'ListaCursos' %}">Lista de Cursos(con Django.views)</a>
                 <a class="navbar-brand" href="{% url 'gerardito' %}">Geralt de Rivia</a>
             </div>
         </nav>
@@ -169,5 +170,16 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        <div style="
+        font-size: 36px; 
+        font-weight: bold; 
+        color: #4A90E2; 
+        text-align: left; 
+        margin-top: 20px; 
+        font-family: 'Arial', sans-serif; 
+        text-shadow: 2px 2px 4px #aaa;">
+        Resultado de búsqueda
+    </div>
     </body>
 </html>

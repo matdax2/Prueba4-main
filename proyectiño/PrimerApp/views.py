@@ -2,6 +2,11 @@ from django.shortcuts import render
 from .models import *
 from django.http import HttpResponse
 from PrimerApp.forms import *
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
 
 def inicio(request):
     return render(request, "PrimerApp/base.html")
@@ -112,3 +117,61 @@ def updateProfe(request, profesor_nombre):
         formulario = ProfeFormulario(initial={"nombre": profesor.nombre, "apellido": profesor.apellido,
                                               "email": profesor.email, "profesion": profesor.profesion})
     return render(request, "PrimerApp/updateProfe.html", {"formulario": formulario, "profesor_nombre": profesor_nombre})
+
+def updateEstudiante(request, estudiante_nombre):
+    estudiante = Estudiante.objects.get(nombre=estudiante_nombre)
+    if request.method == "POST":
+        formulario = Estudiante_Form(request.POST)
+        print(formulario)
+        if formulario.is_valid:
+            informacion = formulario.cleaned_data
+            estudiante.nombre = informacion["nombre"]
+            estudiante.apellido = informacion["apellido"]
+            estudiante.email = informacion["email"]
+            estudiante.save()
+            return render(request, "PrimerApp/base.html")
+    else:
+        formulario = Estudiante_Form(initial={"nombre": estudiante.nombre, "apellido": estudiante.apellido,
+                                              "email": estudiante.email})
+    return render(request, "PrimerApp/updateEstudiante.html", {"formulario": formulario, "estudiante_nombre": estudiante_nombre})
+
+def updateCurso(request, curso_curso):
+    curso = Curso.objects.get(curso=curso_curso)
+    if request.method == "POST":
+        formulario = CursoFormulario(request.POST)
+        print(formulario)
+        if formulario.is_valid:
+            informacion = formulario.cleaned_data
+            curso.curso = informacion["curso"]
+            curso.grupo = informacion["grupo"]
+            curso.save()
+            return render(request, "PrimerApp/base.html")
+    else:
+        formulario = CursoFormulario(initial={"curso": curso.curso, "grupo": curso.grupo})
+    return render(request, "PrimerApp/updateCurso.html", {"formulario": formulario, "curso_curso": curso_curso})
+
+class CursoListView(ListView):
+    model = Curso
+    context_object_name = "cursos"
+    template_name = "PrimerApp/listCurso.html"
+
+class CursoDetailView(DetailView):
+    model = Curso
+    template_name = "PrimerApp/cursoDetalle.html"
+
+class CursoCreateView(CreateView):
+    model = Curso
+    template_name = "PrimerApp/CreateCurso.html"
+    success_url = reverse_lazy("ListaCursos")
+    fields = ["curso", "grupo"]
+
+class CursoUpdateView(UpdateView):
+    model = Curso
+    template_name = "PrimerApp/CursoUpdate.html"
+    success_url = reverse_lazy("ListaCursos")
+    fields = ["curso", "grupo"]
+
+class CursoDeleteView(DeleteView):
+    model = Curso
+    template_name = "PrimerApp/cursoDelete.html"
+    success_url = reverse_lazy("ListaCursos")

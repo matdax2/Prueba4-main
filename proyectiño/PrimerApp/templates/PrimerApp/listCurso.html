@@ -26,13 +26,23 @@
     </style>
 </head>
 <body>
+    <h1>Listado de Cursos</h1>
+
     {% for curso in cursos %}
-        <li>{{curso}}</li>
-        <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Borrar Curso' curso.curso %}">Borrar</a></button>
-        <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Update Curso' curso.curso %}">Update</a></button>
+        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0; border-radius: 5px;">
+            <h2 style="margin: 0;">Nombre: {{ curso.curso }}</h2>
+            <p style="margin: 5px 0;">Grupo: {{ curso.grupo }}</p>
+            <p style="margin: 5px 0;">
+                <a href="{% url 'CursoDetalle' curso.pk %}" style="text-decoration: none; color: #4A90E2;">Detalle</a> |
+                <a href="{% url 'CursoUpdate' curso.pk %}" style="text-decoration: none; color: #4A90E2;">Actualizar</a> |
+                <a href="{% url 'CursoDelete' curso.pk %}" style="text-decoration: none; color: #4A90E2;">Borrar</a>
+            </p>
+        </div>
     {% endfor %}
-    <br>
-    <a class="btn-outline-dark" href="{% url 'Formulario de cursos' %}">Ingresar otro curso</a>
+
+    <div style="margin-top: 20px;">
+        <a href="{% url 'CreateCurso' %}" style="text-decoration: none; color: white; background-color: #4A90E2; padding: 10px 20px; border-radius: 5px;">Nuevo Curso</a>
+    </div>
     <br>
     <button class="btn-custom" onclick="window.location.href='{% url 'Principal' %}'">Inicio</button>
 </body>
