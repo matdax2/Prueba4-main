@@ -156,8 +156,8 @@ def LoginRequest(request):
     if request.method == "POST":
         sesion = AuthenticationForm(request, data = request.POST)
         if sesion.is_valid():
-            usuario = sesion.cleaned_data.get("usuario")
-            contraseña = sesion.cleaned_data.get("contraseña")
+            usuario = sesion.cleaned_data.get("username")
+            contraseña = sesion.cleaned_data.get("password")
             user = authenticate(username = usuario, password = contraseña)
             if user is not None:
                 login(request, user)
@@ -175,7 +175,7 @@ def registrarse(request):
         if registro.is_valid():
             username = registro.cleaned_data["username"]
             registro.save()
-            return render(request, "PrimerApp/base.html", {"mensaje": "Registro exitoso"})
+            return render(request, "PrimerApp/base.html", {"mensaje2": "Registro exitoso"})
     else:
         registro = UserCreationForm()
     return render(request, "PrimerApp/registrarse.html", {"registro": registro})

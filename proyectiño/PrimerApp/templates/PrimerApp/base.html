@@ -6,126 +6,95 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Colegio</title>
-        <!-- Favicon-->
+        <title>Colegio San Sebastian</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
-        <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'PrimerApp/css/styles.css' %}" rel="stylesheet" />
     </head>
-    
-    <body>
-        <a href="{% url 'Login' %}" class="position-absolute btn btn-primary" style="top: 10px; left: 10px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">
-            Login
-        </a>
-        
-        <nav class="navbar navbar-light bg-light static-top">
-            <div class="container">
-                <a class="navbar-brand" href="{% url 'Formulario de estudiantes' %}">Ingresar Estudiante</a>
-                <span>|</span>
-                <a class="navbar-brand" href="{% url 'Estudiantes' %}">Estudiantes</a>
-                <span>|</span>
-                <a class="navbar-brand" href="{% url 'Formulario de profesores' %}">Ingresar Profesor</a>
-                <span>|</span>
-                <a class="navbar-brand" href="{% url 'Profesores' %}">Profesores</a>
-                <span>|</span>
-                <a class="navbar-brand" href="{% url 'Formulario de cursos' %}">Ingresar Curso</a>
-                <span>|</span>
-                <a class="navbar-brand" href="{% url 'Cursos' %}">Cursos</a>
-                <span>|</span>
-                <a class="navbar-brand" href="{% url 'ListaCursos' %}">Lista de Cursos (con Django.views)</a>
-                <span>|</span>
-                <a class="navbar-brand" href="{% url 'gerardito' %}">Geralt de Rivia</a>
-            </div>
-        </nav>
-        <a href="{% url 'Registrarse' %}" class="position-absolute btn btn-outline-dark " style="top: 10px; left: 10px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">
-            Registrarse
-        </a>
-        <a href="{% url 'Login' %}" class="position-absolute btn btn-outline-success " style="top: 10px; left: 180px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">
-            Iniciar sesion
-        </a>
-        <!-- Masthead-->
+
+    <body>     
+   
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'Formulario de estudiantes' %}">Ingresar Estudiante</a>
+            <span>|</span>
+            <a class="navbar-brand" href="{% url 'Estudiantes' %}">Estudiantes</a>
+            <span>|</span>
+            <a class="navbar-brand" href="{% url 'Formulario de profesores' %}">Ingresar Profesor</a>
+            <span>|</span>
+            <a class="navbar-brand" href="{% url 'Profesores' %}">Profesores</a>
+            <span>|</span>
+            <a class="navbar-brand" href="{% url 'Formulario de cursos' %}">Ingresar Curso</a>
+            <span>|</span>
+            <a class="navbar-brand" href="{% url 'Cursos' %}">Cursos</a>
+            <span>|</span>
+            <a class="navbar-brand" href="{% url 'ListaCursos' %}">Lista de Cursos (con Django.views)</a>
+            <span>|</span>
+            <a class="navbar-brand" href="{% url 'gerardito' %}">Geralt de Rivia</a>
+        </div>
+    </nav>
+
+    <a href="{% url 'Registrarse' %}" class="position-absolute btn btn-outline-dark" style="top: 10px; left: 10px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">
+        {% if mensaje2 %}
+        <div class="position-absolute btn btn-outline-dark" style="top: 10px; left: 500px; font-size: 0.80rem; padding: 10px 20px; border-radius: 8px;">
+            {{ mensaje2 }}
+        </div>
+        {% endif %}
+        Registrarse
+    </a>
+    <a href="{% url 'Login' %}" class="position-absolute btn btn-outline-success" style="top: 10px; left: 200px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">
+        {% if mensaje %}
+        <div class="position-absolute btn btn-outline-success" style="top: 10px; left: 200px; font-size: 0.80rem; padding: 10px 20px; border-radius: 8px;">
+            {{ mensaje }}
+        </div>
+        {% endif %}
+        Iniciar sesión
+    </a>
+    <div class="position-absolute" style="top: 60px; left: 10px;">
+        <div class="container mt-5">
+
+            
+        </div>
+    </div>
         <header class="masthead">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
-                            <!-- Page heading-->
 
-                            
                             <h1 class="mb-5">Colegio n423 San Sebastian</h1>
                                 <form action="{% url 'Buscador' %}" method="GET">                                    
                                     <p>Buscar curso segun el grupo</p> <input type="number" name="grupo" id="grupo" placeholder="Ingrese un grupo"> 
                                     <input type="submit" value="Buscar">
-
-
-
-                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                <!-- Email address input-->
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
-                                    </div>
-                                </div>
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        <p>To activate this form, sign up at</p>
-                                        <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                    </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        <!-- Icons Grid-->
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Image Showcases-->
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Call to Action-->
+ 
         <section class="call-to-action text-white text-center" id="signup">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
-                        <!-- Signup form-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
                         <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
-                            <!-- Email address input-->
+
                                 </div>
                             </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
+
                             <div class="d-none" id="submitSuccessMessage">
                                 <div class="text-center mb-3">
                                     <div class="fw-bolder">Form submission successful!</div>
@@ -133,17 +102,14 @@
                                     <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                 </div>
                             </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
+
                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Footer-->
+
         {% block contenidoQueCambia %}
 
         {% endblock %}
