@@ -16,20 +16,37 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'PrimerApp/css/styles.css' %}" rel="stylesheet" />
     </head>
+    
     <body>
-        <!-- Navigation-->
+        <a href="{% url 'Login' %}" class="position-absolute btn btn-primary" style="top: 10px; left: 10px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">
+            Login
+        </a>
+        
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'Formulario de estudiantes' %}">Ingresar Estudiante</a>
+                <span>|</span>
                 <a class="navbar-brand" href="{% url 'Estudiantes' %}">Estudiantes</a>
+                <span>|</span>
                 <a class="navbar-brand" href="{% url 'Formulario de profesores' %}">Ingresar Profesor</a>
+                <span>|</span>
                 <a class="navbar-brand" href="{% url 'Profesores' %}">Profesores</a>
+                <span>|</span>
                 <a class="navbar-brand" href="{% url 'Formulario de cursos' %}">Ingresar Curso</a>
+                <span>|</span>
                 <a class="navbar-brand" href="{% url 'Cursos' %}">Cursos</a>
-                <a class="navbar-brand" href="{% url 'ListaCursos' %}">Lista de Cursos(con Django.views)</a>
+                <span>|</span>
+                <a class="navbar-brand" href="{% url 'ListaCursos' %}">Lista de Cursos (con Django.views)</a>
+                <span>|</span>
                 <a class="navbar-brand" href="{% url 'gerardito' %}">Geralt de Rivia</a>
             </div>
         </nav>
+        <a href="{% url 'Registrarse' %}" class="position-absolute btn btn-outline-dark " style="top: 10px; left: 10px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">
+            Registrarse
+        </a>
+        <a href="{% url 'Login' %}" class="position-absolute btn btn-outline-success " style="top: 10px; left: 180px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">
+            Iniciar sesion
+        </a>
         <!-- Masthead-->
         <header class="masthead">
             <div class="container position-relative">

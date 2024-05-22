@@ -6,6 +6,8 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import login, logout, authenticate
 
 
 def inicio(request):
@@ -150,6 +152,34 @@ def updateCurso(request, curso_curso):
         formulario = CursoFormulario(initial={"curso": curso.curso, "grupo": curso.grupo})
     return render(request, "PrimerApp/updateCurso.html", {"formulario": formulario, "curso_curso": curso_curso})
 
+def LoginRequest(request):
+    if request.method == "POST":
+        sesion = AuthenticationForm(request, data = request.POST)
+        if sesion.is_valid():
+            usuario = sesion.cleaned_data.get("usuario")
+            contraseña = sesion.cleaned_data.get("contraseña")
+            user = authenticate(username = usuario, password = contraseña)
+            if user is not None:
+                login(request, user)
+                return render(request, "PrimerApp/base.html", {"mensaje":f"Inicio exitoso {usuario}"})
+            else:
+                return render(request,"PrimerApp/base.html", {"mensaje": "Datos ingresados no validos"})
+        else:
+            return render(request, "PrimerApp/base.html", {"mensaje": "Autenticacion no valida"})
+    sesion = AuthenticationForm()
+    return render(request, "PrimerApp/login.html", {"sesion": sesion})
+
+def registrarse(request):
+    if request.method == "POST":
+        registro = UserCreationForm(request.POST)
+        if registro.is_valid():
+            username = registro.cleaned_data["username"]
+            registro.save()
+            return render(request, "PrimerApp/base.html", {"mensaje": "Registro exitoso"})
+    else:
+        registro = UserCreationForm()
+    return render(request, "PrimerApp/registrarse.html", {"registro": registro})
+
 class CursoListView(ListView):
     model = Curso
     context_object_name = "cursos"
@@ -175,3 +205,4 @@ class CursoDeleteView(DeleteView):
     model = Curso
     template_name = "PrimerApp/cursoDelete.html"
     success_url = reverse_lazy("ListaCursos")
+
