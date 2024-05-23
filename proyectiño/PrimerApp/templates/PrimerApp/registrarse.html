@@ -1,3 +1,4 @@
+{% extends 'PrimerApp/base.html' %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,9 +7,12 @@
     <title>Registro</title>
 </head>
 <body>
+    {% block registro %}
     <form action="" method="POST"> {% csrf_token %}
         {{registro.as_p}}
         <button type="submit">Registrarse</button>
     </form>
+    {% endblock registro %}
+    
 </body>
 </html>

@@ -8,8 +8,10 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def inicio(request):
     return render(request, "PrimerApp/base.html")
 
@@ -171,13 +173,13 @@ def LoginRequest(request):
 
 def registrarse(request):
     if request.method == "POST":
-        registro = UserCreationForm(request.POST)
+        registro = UserCreationForm(request.POST)#Registro
         if registro.is_valid():
             username = registro.cleaned_data["username"]
             registro.save()
             return render(request, "PrimerApp/base.html", {"mensaje2": "Registro exitoso"})
     else:
-        registro = UserCreationForm()
+        registro = UserCreationForm()#Registro
     return render(request, "PrimerApp/registrarse.html", {"registro": registro})
 
 class CursoListView(ListView):

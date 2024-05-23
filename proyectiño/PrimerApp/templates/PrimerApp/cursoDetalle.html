@@ -1,3 +1,4 @@
+{% extends 'PrimerApp/base.html' %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,10 +7,13 @@
     <title>Detalles del curso</title>
 </head><h1>Detalles</h1>
 <body>
+    {% block cursoDetalle %}
     <p>Nombre del curso: <i>{{curso.curso}}</i></p>
     <p>Grupo: <i>{{curso.grupo}}</i></p>
     <p>
         <a href="{% url 'ListaCursos' %}">Volver</a>
     </p>
+    {% endblock cursoDetalle %}
+    
 </body>
 </html>

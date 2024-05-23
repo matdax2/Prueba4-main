@@ -1,3 +1,4 @@
+{% extends 'PrimerApp/base.html' %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,13 +7,16 @@
     <title>Agregar Estudiantes</title>
 </head>
 <body>
+    {% block formEstudiante %}
     {% if est_formulario.errors %}
-        <p style="color: red;">Estan mal los datos</p>
-    {% endif %}
-    <form action="" method="POST">{% csrf_token %}
-        <table>
-            {{formulario_est.as_table}}
-        </table>
-        <input type="submit" value="Enviar">
+    <p style="color: red;">Estan mal los datos</p>
+{% endif %}
+<form action="" method="POST">{% csrf_token %}
+    <table>
+        {{formulario_est.as_table}}
+    </table>
+    <input type="submit" value="Guardar">
+    {% endblock formEstudiante %}
+    
 </body>
 </html>

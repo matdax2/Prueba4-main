@@ -1,3 +1,4 @@
+{% extends 'PrimerApp/base.html' %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,6 +27,7 @@
     </style>
 </head>
 <body>
+    {% block listadoDeCursos %}
     <h1>Listado de Cursos</h1>
 
     {% for curso in cursos %}
@@ -43,7 +45,7 @@
     <div style="margin-top: 20px;">
         <a href="{% url 'CreateCurso' %}" style="text-decoration: none; color: white; background-color: #4A90E2; padding: 10px 20px; border-radius: 5px;">Nuevo Curso</a>
     </div>
-    <br>
-    <button class="btn-custom" onclick="window.location.href='{% url 'Principal' %}'">Inicio</button>
+    {% endblock listadoDeCursos %}
+    
 </body>
 </html>

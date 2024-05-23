@@ -1,3 +1,4 @@
+{% extends 'PrimerApp/base.html' %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,14 +27,16 @@
     </style>
 </head>
 <body>
+    {% block contenidoQueCambia %}
     {% for estudiante in estudiantes %}
-        <li>{{estudiante}}</li>       
-        <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Borrar Estudiante' estudiante.nombre %}">Borrar</a></button>
-        <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Update Estudiante' estudiante.nombre %}">Update</a></button>
-    {% endfor %}
-    <br>    
-    <a class="btn-outline-dark" href="{% url 'Formulario de estudiantes' %}">Ingresar otro estudiante</a>
-    <br>
-    <button class="btn-custom" onclick="window.location.href='{% url 'Principal' %}'">Inicio</button>
+    <li>{{estudiante}}</li>       
+    <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Borrar Estudiante' estudiante.nombre %}">Borrar</a></button>
+    <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Update Estudiante' estudiante.nombre %}">Update</a></button>
+{% endfor %}
+<br>    
+<a class="btn-outline-dark" href="{% url 'Formulario de estudiantes' %}">Ingresar otro estudiante</a>
+<br>
+    {% endblock contenidoQueCambia %}
+
 </body>
 </html>

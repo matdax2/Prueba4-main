@@ -1,3 +1,4 @@
+{% extends 'PrimerApp/base.html' %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,14 +27,15 @@
     </style>
 </head>
 <body>
+    {% block cursos %}
     {% for curso in cursos %}
-        <li>{{curso}}</li>
-        <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Borrar Curso' curso.curso %}">Borrar</a></button>
-        <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Update Curso' curso.curso %}">Update</a></button>
-    {% endfor %}
-    <br>
-    <a class="btn-outline-dark" href="{% url 'Formulario de cursos' %}">Ingresar otro curso</a>
-    <br>
-    <button class="btn-custom" onclick="window.location.href='{% url 'Principal' %}'">Inicio</button>
+    <li>{{curso}}</li>
+    <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Borrar Curso' curso.curso %}">Borrar</a></button>
+    <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Update Curso' curso.curso %}">Update</a></button>
+{% endfor %}
+<br>
+<a class="btn-outline-dark" href="{% url 'Formulario de cursos' %}">Ingresar otro curso</a> 
+    {% endblock cursos %}
+    
 </body>
 </html>

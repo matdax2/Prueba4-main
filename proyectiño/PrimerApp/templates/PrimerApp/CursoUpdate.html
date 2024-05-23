@@ -1,3 +1,4 @@
+{% extends 'PrimerApp/base.html' %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,9 +7,12 @@
     <title>Editar curso</title>
 </head><h1>Editar curso</h1>
 <body>
+    {% block cursoUpdate %}
     <form action="" method="POST">{% csrf_token %}
         {{form.as_p}}
         <input type="submit" value="Update">
     </form>
+    {% endblock cursoUpdate %}
+    
 </body>
 </html>

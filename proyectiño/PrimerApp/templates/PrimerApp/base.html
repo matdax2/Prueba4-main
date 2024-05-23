@@ -51,6 +51,9 @@
         {% endif %}
         Iniciar sesión
     </a>
+
+    <a href="{% url 'Cerrar Sesion' %}" class="position-absolute btn btn-outline-success" style="top: 10px; left: 400px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">Cerrar Sesion</a>
+    
     <div class="position-absolute" style="top: 60px; left: 10px;">
         <div class="container mt-5">
 
@@ -90,61 +93,46 @@
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
-                        <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
-
-                                </div>
-                            </div>
-
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    <p>To activate this form, sign up at</p>
-                                    <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </section>
-
-        {% block contenidoQueCambia %}
-
-        {% endblock %}
         <footer class="footer bg-light">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                        <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
-                        </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2023. All Rights Reserved.</p>
-                    </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Bootstrap core JS-->
+
+            {% block formEstudiante %}               
+            {% endblock formEstudiante %}
+
+            {% block cursoUpdate %}                
+            {% endblock cursoUpdate %}
+
+            {% block cursoForm %}               
+            {% endblock cursoForm %}
+
+            {% block delete %}                
+            {% endblock delete %}
+
+            {% block listadoDeCursos %}                
+            {% endblock listadoDeCursos %}
+
+            {% block cursoDetalle %}                
+            {% endblock cursoDetalle %}
+
+            {% block crearCurso %}               
+            {% endblock crearCurso %}
+                
+            {% block cursos %}               
+            {% endblock cursos %}
+
+            {% block cerrarSesion %}                
+            {% endblock cerrarSesion %}
+
+            {% block registro %}                
+            {% endblock registro %}
+
+            {% block login %}           
+            {% endblock login %}
+
+            {% block contenidoQueCambia %}           
+            {% endblock contenidoQueCambia %}
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
