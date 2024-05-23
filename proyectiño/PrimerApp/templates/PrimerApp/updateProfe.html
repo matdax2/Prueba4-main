@@ -1,3 +1,4 @@
+{% extends 'PrimerApp/base.html' %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,6 +9,7 @@
 </head>
 
 <body>
+    {% block updateProf %}
     {% if formulario.errors %}
     <p style="color: red;">Estan mal los datos</p>
     {% endif %}
@@ -15,7 +17,9 @@
         <table>
             {{formulario.as_table}}
         </table>
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Guardar">
+    {% endblock updateProf %}
+    
 </body>
 
 </html>

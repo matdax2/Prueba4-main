@@ -1,6 +1,7 @@
 from django.urls import path
 from PrimerApp import views
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth import views as auth_views
+from .views import logoutVista
 
 urlpatterns = [
     path('PrimerApp/', views.inicio, name="Principal"),
@@ -26,5 +27,5 @@ urlpatterns = [
     path('curso/<pk>/borrar', views.CursoDeleteView.as_view(), name="CursoDelete"),
     path('login', views.LoginRequest, name="Login"),
     path('registro', views.registrarse, name="Registrarse"),
-    path('cerrarSesion', LogoutView.as_view(template_name='PrimerApp/CerrarSesion.html'), name="Cerrar Sesion")
+    path('logout/', views.logoutVista, name='logout'),
 ]

@@ -1,3 +1,4 @@
+{% extends 'PrimerApp/base.html' %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,14 +27,16 @@
     </style>
 </head>
 <body>
+    {% block listProf %}
     {% for profesor in profesores %}
-        <li>{{profesor}}</li>
-        <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Borrar Profesor' profesor.nombre %}">Borrar</a></button>
-        <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Update Profe' profesor.nombre %}">Update</a></button>
-    {% endfor %}
-    <br>
-    <a class="btn-outline-dark" href="{% url 'Formulario de profesores' %}">Ingresar otro profesor</a>
-    <br>
-    <button class="btn-custom" onclick="window.location.href='{% url 'Principal' %}'">Inicio</button>
+    <li>{{profesor}}</li>
+    <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Borrar Profesor' profesor.nombre %}">Borrar</a></button>
+    <button class="btn btn-danger"><a class="text-bg-dark" href="{% url 'Update Profe' profesor.nombre %}">Update</a></button>
+{% endfor %}
+<br>
+<a class="btn-outline-dark" href="{% url 'Formulario de profesores' %}">Ingresar otro profesor</a>
+    {% endblock listProf %}
+    
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.http import HttpResponse
 from PrimerApp.forms import *
@@ -181,6 +181,10 @@ def registrarse(request):
     else:
         registro = UserCreationForm()#Registro
     return render(request, "PrimerApp/registrarse.html", {"registro": registro})
+
+def logoutVista(request):
+    logout(request)
+    return render(request, "PrimerApp/base.html")
 
 class CursoListView(ListView):
     model = Curso
