@@ -36,33 +36,55 @@
     </nav>
 
     <a href="{% url 'Registrarse' %}" class="position-absolute btn btn-outline-dark" style="top: 10px; left: 10px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">
+
         Registrarse
+
     </a>
     
     {% if user.is_authenticated %}
+
     <a href="{% url 'logout' %}" class="position-absolute btn btn-outline-danger" style="top: 10px; left: 2000px; font-size: 0.8rem; padding: 10px 20px; border-radius: 8px;">
+
         Cerrar sesión
+
     </a>
+
     <a href="#" class="position-absolute btn btn-outline-success" style="top: 10px; left: 200px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">
+
         Iniciar sesión
+
         <span class="ms-2">{{ user.username }}</span>
+
     </a>
+
+    
     {% else %}
+
     <a href="{% url 'Login' %}" class="position-absolute btn btn-outline-success" style="top: 10px; left: 200px; font-size: 1.5rem; padding: 10px 20px; border-radius: 8px;">
+
         Iniciar sesión
+
     </a>
+
     {% endif %}
     
     {% if mensaje2 %}
+
     <div id="mensaje2" class="position-fixed btn btn-outline-dark" style="left: 50%; bottom: 20px; transform: translateX(-50%); font-size: 0.80rem; padding: 10px 20px; border-radius: 8px;">
+
         {{ mensaje2 }}
     </div>
+
     {% endif %}
     
     {% if mensaje %}
+
     <div id="mensaje" class="position-fixed btn btn-outline-success" style="left: 50%; bottom: 20px; transform: translateX(-50%); font-size: 0.80rem; padding: 10px 20px; border-radius: 8px;">
+
         {{ mensaje }}
+
     </div>
+
     {% endif %}
     
     
